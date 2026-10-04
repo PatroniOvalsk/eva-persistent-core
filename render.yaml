@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: eva-persistent-core
+    runtime: python
+    plan: free
+    buildCommand: "true"
+    startCommand: "python eva_core.py"
+    healthCheckPath: /health
+    envVars:
+      - key: EVA_OWNER_TOKEN
+        generateValue: true
+      - key: EVA_CYCLE_SECONDS
+        value: "3600"
